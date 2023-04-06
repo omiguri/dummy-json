@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asecyronase</title>
+</head>
+
+<body>
+
+    <div class="TOP">
+        <h1></h1>
+        <h2></h2>
+    </div>
+    <script>
+        fetch("https://randomuser.me/api")
+            .then((omi) => { return omi.json() })
+         .then((result) => {console.log(result);
+            show(result)})
+            // .then((result) => { name(result.results) })
+
+        function show(params) {
+            let image = document.createElement("img");
+            image.src = params.results[0].picture.large;
+            document.querySelector(".TOP").append(image)
+
+            let name = document.createElement("h2");
+            name.innerHTML = params.results[0].name.first + " " + params.results[0].name.last;
+            document.querySelector(".TOP").append(name)
+
+
+            let email = document.createElement("P");
+            email.innerHTML = params.results[0].email;
+            document.querySelector(".TOP").append(email)
+
+            // https://dummyjson.com/products
+
+        }
+    </script>
+</body>
+
+</html>
